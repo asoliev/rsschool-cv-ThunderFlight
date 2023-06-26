@@ -1,6 +1,8 @@
-# Igor Matsievskyi
+<div align="center">
+    <img src="./images/avatar.jpg" alt="avatar" width="128"/>
+</div>
 
----
+# Igor Matsievskyi
 
 ## Contact
 
