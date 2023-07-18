@@ -1,4 +1,5 @@
 import { AboutCarousel } from "./components/aboutCarousel/aboutCarousel";
+import { CoffeShop } from "./components/coffeShop/coffeShop";
 import { Favorites } from "./components/favorites/favorites";
 import { Header } from "./components/header/header";
 import { WelcomeBanner } from "./components/welcomeBanner/welcomeBanner";
@@ -11,6 +12,7 @@ function App() {
         <WelcomeBanner />
         <AboutCarousel />
         <Favorites data={booksData} />
+        <CoffeShop />
       </main>
     </div>
   );
