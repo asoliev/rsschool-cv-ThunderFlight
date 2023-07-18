@@ -1,0 +1,145 @@
+@import "../../scss/main.scss";
+.favorites {
+  @include pX;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  p {
+    @include text(20px, 700, $BLACK);
+    font-family: Inter;
+    margin-bottom: 40px;
+  }
+  .seasonBooks {
+    &__preViewBooks {
+      @include media($SCREEN_FULLHD_L) {
+        display: flex;
+        justify-content: center;
+        display: grid;
+        grid-template-columns: 550px 550px;
+        grid-column-gap: 260px;
+        flex-direction: row;
+        padding-top: 40px;
+      }
+      display: grid;
+      grid-template-columns: 550px 550px;
+      grid-column-gap: 260px;
+      flex-direction: row;
+      padding-top: 40px;
+    }
+
+    &__pagination label {
+      @include text(20px, 400, $BLACK);
+      cursor: pointer;
+    }
+    &__pagination input {
+      cursor: pointer;
+    }
+    &__pagination input[type="radio"]:first-child {
+      margin-left: 0px;
+    }
+    &__pagination input[type="radio"] {
+      position: relative;
+      height: 16px;
+      width: 16px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: none;
+      padding: 0px;
+      margin-right: 20px;
+      margin-left: 90px;
+    }
+
+    &__pagination input[type="radio"]::before {
+      content: "";
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border: 2px solid $BLACK;
+    }
+
+    &__pagination input[type="radio"]:checked::after {
+      content: "";
+      position: absolute;
+      top: 60%;
+      left: 49%;
+
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      background-color: $BLACK;
+      transform: translate(-50%, -50%);
+      visibility: visible;
+    }
+  }
+
+  .cover {
+    border: 1px solid $BLACK;
+    padding: 15px 20px 15px 20px;
+    width: 550px;
+    min-height: 555px;
+    position: relative;
+    margin-bottom: 20px;
+
+    &__from {
+      @include text(20px, 400, $BLACK);
+      font-family: Forum;
+      margin-bottom: 10px;
+    }
+    &__lineGold {
+      border: 1px solid $GOLD;
+      width: 50px;
+      margin-bottom: 20px;
+    }
+
+    &__name {
+      text-transform: uppercase;
+      font-family: Inter;
+    }
+    &__author {
+      text-transform: capitalize;
+      font-family: Inter;
+      margin-bottom: 20px;
+    }
+    &__description {
+      text-transform: capitalize;
+      max-width: 325px;
+      font-family: Forum;
+      margin-bottom: 15px;
+    }
+    &__btnBuy {
+      border: 1px solid $BLACK;
+      width: 75px;
+      height: 30px;
+      color: $BLACK;
+      background-color: $WHITE;
+      border-radius: 2px;
+      position: absolute;
+      bottom: 15px;
+      left: 20px;
+    }
+    &__image {
+      position: absolute;
+      right: -40px;
+      bottom: -1px;
+    }
+  }
+  .nameAndAuthor {
+    @include text(15px, 700, $BLACK);
+
+    line-height: 40px;
+    letter-spacing: 2px;
+  }
+}
+.selected {
+  font-weight: 700;
+}
+.notSelected {
+  font-weight: 400;
+}

@@ -1,0 +1,44 @@
+@import "../../scss/main.scss";
+.aboutCarousel {
+  @include flex-col(center, center);
+  margin-bottom: 60px;
+  &__aboutLibrary {
+    color: $BLACK;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    margin-bottom: 20px;
+    @include pX;
+  }
+  .slide {
+    margin-bottom: 40px;
+    img {
+      width: 450px;
+      height: 560px;
+      margin-right: 25px;
+    }
+    img:last-child {
+      margin-right: 0px;
+    }
+  }
+  .pagination {
+    @include flex(center, center);
+    input {
+      display: none;
+    }
+    label {
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+      background-color: $LIGHTBLACK;
+      margin-right: 20px;
+      border-radius: 100%;
+    }
+    input[type="radio"]:checked + label {
+      background-color: $GOLD;
+    }
+  }
+}
