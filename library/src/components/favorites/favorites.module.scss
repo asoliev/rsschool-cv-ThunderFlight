@@ -1,10 +1,11 @@
 @import "../../scss/main.scss";
 .favorites {
   @include pX;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
 
+  margin-bottom: 60px;
+  @include media($SCREEN_FULLHD_L) {
+    @include flex-col(center, center);
+  }
   p {
     @include text(20px, 700, $BLACK);
     font-family: Inter;
@@ -12,18 +13,9 @@
   }
   .seasonBooks {
     &__preViewBooks {
-      @include media($SCREEN_FULLHD_L) {
-        display: flex;
-        justify-content: center;
-        display: grid;
-        grid-template-columns: 550px 550px;
-        grid-column-gap: 260px;
-        flex-direction: row;
-        padding-top: 40px;
-      }
       display: grid;
       grid-template-columns: 550px 550px;
-      grid-column-gap: 260px;
+      grid-column-gap: 270px;
       flex-direction: row;
       padding-top: 40px;
     }

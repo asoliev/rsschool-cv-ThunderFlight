@@ -2,7 +2,9 @@
 .coffeShop {
   @include pX;
   @include flex-col(center, center);
-
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 1400px;
   &__description {
     @include text(20px, 400, $BLACK);
     line-height: 40px;
