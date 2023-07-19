@@ -1,0 +1,59 @@
+@import "../../scss/main.scss";
+.footer {
+  padding: 20px 20px 44px 20px;
+  width: 100%;
+  background-color: $BLACK;
+  &__top {
+    margin-bottom: 30px;
+    @include flex-row(space-between, center);
+    .leftContact {
+      &__address {
+        @include text(15px, 400, $WHITE);
+        line-height: 20px;
+        font-family: Inter;
+        text-align: start;
+        width: 230px;
+        margin-bottom: 18px;
+      }
+      &__socialAccounts {
+        @include flex-row(start, center);
+        img {
+          margin-right: 15px;
+        }
+        svg:last-child {
+          margin-right: 0px;
+        }
+      }
+    }
+    .rightSchedule {
+      p {
+        @include text(15px, 400, $WHITE);
+        line-height: 20px;
+        font-family: Inter;
+        text-align: end;
+        line-height: 20px;
+      }
+      p:nth-child(2) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__line {
+    width: 100%;
+    border: 1px solid $WHITE;
+    margin-bottom: 44px;
+  }
+  &__bottom {
+    @include flex-row(space-between, center);
+    p {
+      @include text(20px, 400, $WHITE);
+      font-size: 20px;
+      font-family: Inter;
+      line-height: 20px;
+      letter-spacing: 2px;
+    }
+    p:last-child {
+      line-height: 40px;
+    }
+  }
+}

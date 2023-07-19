@@ -3,6 +3,7 @@ import { AboutCarousel } from "./components/aboutCarousel/aboutCarousel";
 import { CoffeShop } from "./components/coffeShop/coffeShop";
 import { DigitalLibraryCards } from "./components/digitalLibraryCards/digitalLibraryCards";
 import { Favorites } from "./components/favorites/favorites";
+import { Footer } from "./components/footer/footer";
 import { Header } from "./components/header/header";
 import { OurContacts } from "./components/ourContacts/ourContacts";
 import { WelcomeBanner } from "./components/welcomeBanner/welcomeBanner";
@@ -19,6 +20,7 @@ function App() {
         <OurContacts />
         <DigitalLibraryCards />
       </main>
+      <Footer />
     </div>
   );
 }
