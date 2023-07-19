@@ -1,0 +1,111 @@
+@import "../../scss/main.scss";
+.digitalLibraryCards {
+  @include pX;
+  width: 1400px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  &__wrapp {
+    @include flex-row(space-between);
+    .leftFind {
+      @include flex-col(center, center);
+      &__titleCard {
+        @include text(30px, 400, $BLACK);
+        font-family: Inter;
+        line-height: 40px;
+        letter-spacing: 0.6px;
+        margin-bottom: 30px;
+      }
+      &__borderCard {
+        @include flex-col(start, center);
+        border: 3px solid $GOLD;
+        background-color: $WHITE;
+
+        width: 600px;
+        height: 386px;
+        button {
+          cursor: pointer;
+          border: 1px solid $BLACK;
+          width: 242px;
+          height: 44px;
+          background-color: $WHITE;
+          @include text(20px, 700, $BLACK);
+          font-family: Inter;
+          letter-spacing: 1px;
+          text-align: center;
+          text-emphasis: none;
+          border-radius: 2px;
+        }
+        .innerBlock {
+          width: 560px;
+          height: 272px;
+          background-color: $GOLD;
+          margin: 20px;
+          padding: 20px 20px 25px 20px;
+          @include flex-col(start);
+          input {
+            width: 520px;
+            height: 66px;
+            border-radius: 10px;
+            background-color: $WHITE;
+            margin-bottom: 40px;
+            border: 0px;
+            padding-left: 20px;
+            @include text(30px, 400, $BLACK);
+            line-height: 50px;
+            letter-spacing: 0.6;
+            font-family: Forum;
+          }
+          input:last-child {
+            margin-bottom: 0px;
+          }
+          input::placeholder {
+            @include text(30px, 400, $GRAY);
+            line-height: 50px;
+            letter-spacing: 0.6;
+            font-family: Forum;
+            margin-left: 20px;
+          }
+          p {
+            @include text(30px, 400, $BLACK);
+            line-height: 50px;
+            letter-spacing: 0.6px;
+            font-family: Forum;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+    .rightGet {
+      @include flex-col(start, end);
+      button:first-child {
+        margin-right: 20px;
+      }
+      button {
+        border: 1px solid $BLACK;
+        @include text(10px, 700, $BLACK);
+        letter-spacing: 1px;
+        font-family: Inter;
+        text-align: center;
+        width: 75px;
+        height: 30px;
+        background-color: $WHITE;
+        cursor: pointer;
+      }
+      h3,
+      p {
+        @include text(30px, 400, $BLACK);
+        letter-spacing: 0.6px;
+        text-align: right;
+        font-family: Forum;
+        margin-bottom: 35px;
+      }
+      p {
+        font-size: 20px;
+        font-family: Inter;
+        width: 456px;
+        letter-spacing: 0.4px;
+        line-height: 40px;
+      }
+    }
+  }
+}

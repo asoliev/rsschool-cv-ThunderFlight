@@ -1,6 +1,7 @@
 import styles from "./App.module.scss";
 import { AboutCarousel } from "./components/aboutCarousel/aboutCarousel";
 import { CoffeShop } from "./components/coffeShop/coffeShop";
+import { DigitalLibraryCards } from "./components/digitalLibraryCards/digitalLibraryCards";
 import { Favorites } from "./components/favorites/favorites";
 import { Header } from "./components/header/header";
 import { OurContacts } from "./components/ourContacts/ourContacts";
@@ -16,6 +17,7 @@ function App() {
         <Favorites data={booksData} />
         <CoffeShop />
         <OurContacts />
+        <DigitalLibraryCards />
       </main>
     </div>
   );
