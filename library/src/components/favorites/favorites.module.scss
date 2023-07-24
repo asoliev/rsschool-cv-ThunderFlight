@@ -15,7 +15,7 @@
     &__preViewBooks {
       display: grid;
       grid-template-columns: 550px 550px;
-      grid-column-gap: 270px;
+      grid-column-gap: 260px;
       flex-direction: row;
       padding-top: 40px;
     }
@@ -24,13 +24,13 @@
       @include text(20px, 400, $BLACK);
       cursor: pointer;
     }
-    &__pagination input {
-      cursor: pointer;
-    }
+
     &__pagination input[type="radio"]:first-child {
       margin-left: 0px;
+      cursor: pointer;
     }
     &__pagination input[type="radio"] {
+      cursor: pointer;
       position: relative;
       height: 16px;
       width: 16px;
@@ -60,14 +60,16 @@
       content: "";
       position: absolute;
       top: 60%;
-      left: 49%;
-
+      left: 50%;
       width: 10px;
       height: 10px;
       border-radius: 100%;
       background-color: $BLACK;
       transform: translate(-50%, -50%);
       visibility: visible;
+    }
+    &__pagination input[type="radio"]:checked + label {
+      font-weight: bold;
     }
   }
 
@@ -101,20 +103,17 @@
     }
     &__description {
       text-transform: capitalize;
-      max-width: 325px;
-      font-family: Forum;
+      max-width: 355px;
+      font-family: Inter;
+      @include text(15px, 400, $BLACK);
+      line-height: 40px;
+      letter-spacing: 2px;
       margin-bottom: 15px;
     }
-    &__btnBuy {
-      border: 1px solid $BLACK;
-      width: 75px;
-      height: 30px;
-      color: $BLACK;
-      background-color: $WHITE;
-      border-radius: 2px;
-      position: absolute;
-      bottom: 15px;
-      left: 20px;
+
+    &__btnBuy:hover {
+      border-color: $GOLD;
+      background-color: $GOLD;
     }
     &__image {
       position: absolute;
@@ -128,10 +127,4 @@
     line-height: 40px;
     letter-spacing: 2px;
   }
-}
-.selected {
-  font-weight: 700;
-}
-.notSelected {
-  font-weight: 400;
 }

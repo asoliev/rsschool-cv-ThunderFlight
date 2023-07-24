@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CustomButton } from "../common/h2Title/customButton/customButton";
 import { H2Title } from "../common/h2Title/h2Title";
 import styles from "./digitalLibraryCards.module.scss";
 export const DigitalLibraryCards = () => {
@@ -36,7 +37,7 @@ export const DigitalLibraryCards = () => {
                 value={card}
               />
             </div>
-            <button type="submit">Check the card</button>
+            <CustomButton type="submit">Check the card</CustomButton>
           </form>
         </div>
         <div className={styles.rightGet}>
@@ -46,8 +47,8 @@ export const DigitalLibraryCards = () => {
             you can register a new account
           </p>
           <span>
-            <button>sign Up</button>
-            <button>Log in</button>
+            <CustomButton color="regBtn">sign Up</CustomButton>
+            <CustomButton color="regBtn">Log in</CustomButton>
           </span>
         </div>
       </div>

@@ -5,14 +5,22 @@
   margin: 0 auto;
   margin-bottom: 20px;
   width: 1400px;
-  &__description {
-    @include text(20px, 400, $BLACK);
+  &__descriptionUp {
+    @include text(19.7px, 400, $BLACK);
     line-height: 40px;
     letter-spacing: 2px;
-    text-transform: capitalize;
+
+    font-family: Inter;
+    text-align: center;
+    padding: 0px;
+  }
+  &__descriptionBottom {
+    @include text(19.5px, 400, $BLACK);
+    line-height: 40px;
+    letter-spacing: 2px;
+
     font-family: Inter;
     margin-bottom: 40px;
-    width: 100%;
     text-align: center;
   }
   &__priceFood {

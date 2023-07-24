@@ -22,19 +22,7 @@
 
         width: 600px;
         height: 386px;
-        button {
-          cursor: pointer;
-          border: 1px solid $BLACK;
-          width: 242px;
-          height: 44px;
-          background-color: $WHITE;
-          @include text(20px, 700, $BLACK);
-          font-family: Inter;
-          letter-spacing: 1px;
-          text-align: center;
-          text-emphasis: none;
-          border-radius: 2px;
-        }
+
         .innerBlock {
           width: 560px;
           height: 272px;
@@ -80,17 +68,7 @@
       button:first-child {
         margin-right: 20px;
       }
-      button {
-        border: 1px solid $BLACK;
-        @include text(10px, 700, $BLACK);
-        letter-spacing: 1px;
-        font-family: Inter;
-        text-align: center;
-        width: 75px;
-        height: 30px;
-        background-color: $WHITE;
-        cursor: pointer;
-      }
+
       h3,
       p {
         @include text(30px, 400, $BLACK);

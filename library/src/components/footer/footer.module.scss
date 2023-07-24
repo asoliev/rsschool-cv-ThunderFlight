@@ -3,6 +3,10 @@
   padding: 20px 20px 44px 20px;
   width: 100%;
   background-color: $BLACK;
+  @include flex(center, center);
+}
+.footerWrapper {
+  width: 1440px;
   &__top {
     margin-bottom: 30px;
     @include flex-row(space-between, center);

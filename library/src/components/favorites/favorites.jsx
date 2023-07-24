@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react";
+import { CustomButton } from "../common/h2Title/customButton/customButton";
 import { H2Title } from "../common/h2Title/h2Title";
 import styles from "./favorites.module.scss";
 export const Favorites = ({ data }) => {
@@ -75,14 +76,11 @@ export const Favorites = ({ data }) => {
                         )}>
                         {book.author}
                       </h4>
-                      <p
-                        className={classNames(
-                          styles.cover__description,
-                          styles.nameAndAuthor
-                        )}>
+                      <p className={styles.cover__description}>
                         {book.description}
                       </p>
-                      <button className={styles.cover__btnBuy}>Buy</button>
+                      {/* <button className={styles.cover__btnBuy}>Buy</button> */}
+                      <CustomButton color="bookBtn">Buy</CustomButton>
                       <img src={book.src} className={styles.cover__image} />
                     </div>
                   );
