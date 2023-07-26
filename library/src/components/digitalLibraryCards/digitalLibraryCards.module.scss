@@ -1,11 +1,17 @@
 @import "../../scss/main.scss";
 .digitalLibraryCards {
   @include pX;
-  width: 1400px;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
   margin-bottom: 40px;
+
   &__wrapp {
-    @include flex-row(space-between);
+    @include flex-col(center, center);
+
+    @include media($SCREEN_FULLHD) {
+      @include flex-row(space-between);
+    }
     .leftFind {
       @include flex-col(center, center);
       &__titleCard {
@@ -19,7 +25,10 @@
         @include flex-col(start, center);
         border: 3px solid $GOLD;
         background-color: $WHITE;
-
+        margin-bottom: 20px;
+        @include media($SCREEN_FULLHD) {
+          margin-bottom: 0px;
+        }
         width: 600px;
         height: 386px;
 
@@ -29,7 +38,9 @@
           background-color: $GOLD;
           margin: 20px;
           padding: 20px 20px 25px 20px;
+
           @include flex-col(start);
+
           input {
             width: 520px;
             height: 66px;
@@ -64,23 +75,31 @@
       }
     }
     .rightGet {
-      @include flex-col(start, end);
+      @include flex-col(center, center);
+      @include media($SCREEN_FULLHD) {
+        @include flex-col(start, end);
+      }
       button:first-child {
         margin-right: 20px;
       }
-
       h3,
       p {
         @include text(30px, 400, $BLACK);
         letter-spacing: 0.6px;
-        text-align: right;
+        text-align: center;
+        @include media($SCREEN_FULLHD) {
+          text-align: right;
+        }
         font-family: Forum;
         margin-bottom: 35px;
       }
       p {
         font-size: 20px;
         font-family: Inter;
-        width: 456px;
+        width: 600px;
+        @include media($SCREEN_FULLHD) {
+          width: 456px;
+        }
         letter-spacing: 0.4px;
         line-height: 40px;
       }

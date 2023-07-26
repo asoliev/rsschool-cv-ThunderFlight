@@ -17,8 +17,14 @@
   .slide {
     margin-bottom: 40px;
     img {
-      width: 450px;
-      height: 560px;
+      @include media($SCREEN_DESKTOP) {
+        width: 300px;
+        height: 360px;
+      }
+      @include media($SCREEN_FULLHD) {
+        width: 450px;
+        height: 560px;
+      }
       margin-right: 25px;
     }
     img:last-child {
@@ -37,9 +43,17 @@
       background-color: $LIGHTBLACK;
       margin-right: 10px;
       border-radius: 100%;
+      display: block;
     }
     input[type="radio"]:checked + label {
       background-color: $GOLD;
+    }
+    .tabletTrue {
+      display: inline-block;
+      @include flex-row(space-between, center);
+    }
+    .tabletFalse {
+      display: none;
     }
   }
 }

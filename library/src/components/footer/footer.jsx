@@ -12,9 +12,23 @@ export const Footer = () => {
               286 Cadman Plaza, New York, NY 11238, United States
             </p>
             <div className={styles.leftContact__socialAccounts}>
-              <img src={twitter} alt="twitter" />
-              <img src={instagram} alt="instagram" />
-              <img src={facebook} alt="facebook" />
+              <a target="https://twitter.com/i/flow/login?redirect_after_login=%2F%3Flang%3Duk">
+                <img src={twitter} alt="twitter" className={styles.socialSvg} />
+              </a>
+              <a target="https://www.instagram.com/">
+                <img
+                  src={instagram}
+                  alt="instagram"
+                  className={styles.socialSvg}
+                />
+              </a>
+              <a target="https://www.facebook.com/">
+                <img
+                  src={facebook}
+                  alt="facebook"
+                  className={styles.socialSvg}
+                />
+              </a>
             </div>
           </div>
           <div className={styles.rightSchedule}>

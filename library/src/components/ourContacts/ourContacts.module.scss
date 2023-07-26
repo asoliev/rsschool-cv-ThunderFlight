@@ -2,11 +2,25 @@
 .ourContacts {
   @include pX;
   @include flex-col(center, center);
-  margin-bottom: 60px;
+  margin-bottom: 50px;
+  width: 100%;
+  max-width: 1440px;
+  &__title {
+    margin-bottom: 40px;
+  }
   &__wrapTextMap {
-    @include flex-row(center, center);
+    @include flex-col(flex-start);
+    width: 100%;
+    @include media($SCREEN_FULLHD) {
+      @include flex-row(space-between);
+    }
+
     .textContact {
-      margin-right: 160px;
+      margin-bottom: 100px;
+      @include media($SCREEN_FULLHD) {
+        margin-bottom: 0px;
+      }
+
       h3,
       p,
       b {
@@ -16,8 +30,11 @@
         text-transform: capitalize;
         font-family: Inter;
       }
-      h3 {
+      h3:first-child {
         margin-bottom: 40px;
+      }
+      h3 {
+        margin-bottom: 20px;
       }
       p {
         font-weight: 400;
@@ -28,9 +45,6 @@
       }
       p:last-child {
         margin-bottom: 0px;
-      }
-      h3:last-child {
-        margin-bottom: 20px;
       }
     }
   }

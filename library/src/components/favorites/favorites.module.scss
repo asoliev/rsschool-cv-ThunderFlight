@@ -2,7 +2,7 @@
 .favorites {
   @include pX;
 
-  margin-bottom: 60px;
+  margin-bottom: 15px;
   @include media($SCREEN_FULLHD_L) {
     @include flex-col(center, center);
   }
@@ -13,13 +13,22 @@
   }
   .seasonBooks {
     &__preViewBooks {
-      display: grid;
-      grid-template-columns: 550px 550px;
-      grid-column-gap: 260px;
-      flex-direction: row;
+      @include media($SCREEN_TABLET) {
+        @include flex-col(center, center);
+      }
+      @include media($SCREEN_FULLHD) {
+        @include flex;
+        display: grid;
+        grid-template-columns: 550px 550px;
+        grid-column-gap: 260px;
+        flex-direction: row;
+      }
+
       padding-top: 40px;
     }
-
+    &__pagination {
+      @include flex-row(flex-start, center);
+    }
     &__pagination label {
       @include text(20px, 400, $BLACK);
       cursor: pointer;
@@ -40,7 +49,7 @@
       outline: none;
       padding: 0px;
       margin-right: 20px;
-      margin-left: 90px;
+      margin-left: 115px;
     }
 
     &__pagination input[type="radio"]::before {
@@ -79,8 +88,7 @@
     width: 550px;
     min-height: 555px;
     position: relative;
-    margin-bottom: 20px;
-
+    margin-bottom: 40px;
     &__from {
       @include text(20px, 400, $BLACK);
       font-family: Forum;
@@ -111,10 +119,6 @@
       margin-bottom: 15px;
     }
 
-    &__btnBuy:hover {
-      border-color: $GOLD;
-      background-color: $GOLD;
-    }
     &__image {
       position: absolute;
       right: -40px;

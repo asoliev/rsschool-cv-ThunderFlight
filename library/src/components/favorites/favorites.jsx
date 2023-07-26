@@ -59,29 +59,89 @@ export const Favorites = ({ data }) => {
               if (check === key) {
                 return item[key].map((book, id) => {
                   return (
-                    <div className={styles.cover} key={id}>
-                      <h3 className={styles.cover__from}>{book.from}</h3>
-                      <div className={styles.cover__lineGold}></div>
-                      <h4
-                        className={classNames(
-                          styles.cover__name,
-                          styles.nameAndAuthor
-                        )}>
-                        {book.name}
-                      </h4>
-                      <h4
-                        className={classNames(
-                          styles.cover__author,
-                          styles.nameAndAuthor
-                        )}>
-                        {book.author}
-                      </h4>
-                      <p className={styles.cover__description}>
-                        {book.description}
-                      </p>
-                      {/* <button className={styles.cover__btnBuy}>Buy</button> */}
-                      <CustomButton color="bookBtn">Buy</CustomButton>
-                      <img src={book.src} className={styles.cover__image} />
+                    <div>
+                      <div className={styles.cover} key={id}>
+                        <h3 className={styles.cover__from}>{book.from}</h3>
+                        <div className={styles.cover__lineGold}></div>
+                        <h4
+                          className={classNames(
+                            styles.cover__name,
+                            styles.nameAndAuthor
+                          )}>
+                          {book.name}
+                        </h4>
+                        <h4
+                          className={classNames(
+                            styles.cover__author,
+                            styles.nameAndAuthor
+                          )}>
+                          {book.author}
+                        </h4>
+                        <p className={styles.cover__description}>
+                          {book.description}
+                        </p>
+                        <CustomButton color="bookBtn">Buy</CustomButton>
+                        <img src={book.src} className={styles.cover__image} />
+                      </div>
+                      {/* <div className={styles.modalBuy}>
+                        {/* <div className={styles.modalBuy__titel}>
+                          <h3>BUY A LIBRARY CARD</h3>
+                          <img src="" />
+                        </div>
+
+                        <div className={styles.modalBuy__formBuyWrapper}>
+                          <form className={styles.formBuy}>
+                            <label htmlFor="bankNumber">Bank card Number</label>
+                            <input
+                              type="number"
+                              maxLength="16"
+                              minLength="16"
+                              id="bankNumber"
+                            />
+                            <label htmlFor="month">Expiration Code</label>
+                            <div>
+                              <input
+                                type="number"
+                                id="month"
+                                maxLength="2"
+                                max="12"
+                              />
+                              <input
+                                type="number"
+                                id="day"
+                                maxLength="2"
+                                max="30"
+                              />
+                            </div>
+                            <label htmlFor="holderName">Cardholder name</label>
+                            <input type="text" id="holderName" />
+                            <label htmlFor="postalCode">Postal Code</label>
+                            <input
+                              id="postalCode"
+                              type="number"
+                              maxLength="5"
+                              minLength="5"
+                            />
+                            <label htmlFor="cityTown">City &#47; Town</label>
+                            <input type="text" id="cityTown" />
+                            <div>
+                              <CustomButton color="modalBtn" type="submit">
+                                Buy
+                              </CustomButton>
+                              <h3>{book.price}</h3>
+                            </div>
+                          </form>
+                          <div className={styles.privacy}>
+                            <p>
+                              If you are live, work, attend school, or pay
+                              property taxes in New York State, you can get a
+                              $25 digital library card right now using this
+                              online form. Visitors to New York State can also
+                              use this form to apply for a temporary card.
+                            </p>
+                          </div>
+                        </div>
+                      </div> */}
                     </div>
                   );
                 });

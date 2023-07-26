@@ -87,8 +87,6 @@ export const Header = () => {
         setopenLogIn(false);
         setProfileReged(true);
         setUserRegistered(true);
-      } else {
-        console.log("NO");
       }
     }
   };
@@ -97,7 +95,7 @@ export const Header = () => {
     setUserForm({ ...userForm, [name]: value, id: uid() });
     let NamesReg = /[0-9]+/gi;
     let emailReg = /[A-z,0-9]+@[a-z]+\.[a-z]+/gi;
-    let passwordReg = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/gi;
+    let passwordReg = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8}/gi;
     if (
       userForm.firstName !== "" &&
       NamesReg.test(userForm.firstName) === false
@@ -121,21 +119,21 @@ export const Header = () => {
     }
     if (
       userForm.password !== "" &&
-      passwordReg.test(userForm.password) === false &&
-      console.log(
-        users.filter((item) => {
-          console.log(item);
-          if (item.password === userForm.password) {
-            return console.log(true);
-          } else {
-            return console.log(false);
-          }
-        })
-      )
+      passwordReg.test(userForm.password) === false
     ) {
-      setPassword(true);
+      users.filter((item) => {
+        console.log(item.password);
+        console.log(userForm.password);
+        if (item.password === userForm.password) {
+          console.log("false");
+          setPassword(false);
+        } else {
+          setPassword(true);
+        }
+      });
     } else {
       setPassword(false);
+      console.log("false");
     }
   };
   const submitUser = (e) => {
@@ -152,8 +150,6 @@ export const Header = () => {
       });
       setopenRegister(false);
       setUserRegistered(true);
-    } else {
-      console.log("invalid");
     }
   };
 
@@ -179,9 +175,6 @@ export const Header = () => {
     localStorage.setItem("registered", userRegisetered);
     localStorage.setItem("user", JSON.stringify(users));
   }, [users, profileReged, userRegisetered, loginUserProfile]);
-  users.map((item) => {
-    console.log(item.firstName);
-  });
 
   return (
     <header className={styles.header}>
@@ -207,10 +200,23 @@ export const Header = () => {
               <a href="#">Library Card</a>
             </li>
           </ul>
-          <img
-            src={profileIcon}
-            onClick={userRegisetered ? openModalReg : openModalNoReg}
-          />
+          {userRegisetered ? (
+            <div
+              onClick={userRegisetered ? openModalReg : openModalNoReg}
+              className={styles.headerWrapper__avatar}>
+              {loginUserProfile.firstName !== undefined
+                ? loginUserProfile.firstName.slice(0, 1).toUpperCase()
+                : "undefined"}
+              {loginUserProfile.lastName !== undefined
+                ? loginUserProfile.lastName.slice(0, 1).toUpperCase()
+                : "undefined"}
+            </div>
+          ) : (
+            <img
+              src={profileIcon}
+              onClick={userRegisetered ? openModalReg : openModalNoReg}
+            />
+          )}
           <div
             className={classNames(
               open ? styles.modalChooseOpened : styles.modalChooseClosed
@@ -364,8 +370,12 @@ export const Header = () => {
                 className={classNames(
                   password ? styles.validFirstName : styles.invalidFirstName
                 )}
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                title="Password needs min 1 Uppercase 1 lowercase 1 Number lenght 8"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8}"
+                title={
+                  password
+                    ? "Password needs min 1 Uppercase 1 lowercase 1 Number lenght 8-16"
+                    : "Put another Password"
+                }
                 required
               />
 

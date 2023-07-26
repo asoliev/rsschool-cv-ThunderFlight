@@ -19,6 +19,15 @@
     line-height: 50px;
     letter-spacing: 0.6px;
   }
+  &__avatar {
+    width: 28px;
+    height: 28px;
+    background-color: $WHITE;
+    color: $GOLD;
+    @include flex(center, center);
+    border-radius: 100%;
+    cursor: pointer;
+  }
   &__nav {
     @include flex-row(center, center);
     position: relative;

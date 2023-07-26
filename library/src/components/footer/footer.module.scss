@@ -6,7 +6,7 @@
   @include flex(center, center);
 }
 .footerWrapper {
-  width: 1440px;
+  width: 1400px;
   &__top {
     margin-bottom: 30px;
     @include flex-row(space-between, center);
@@ -21,11 +21,15 @@
       }
       &__socialAccounts {
         @include flex-row(start, center);
-        img {
+        a {
           margin-right: 15px;
+          cursor: pointer;
         }
-        svg:last-child {
+        a:last-child {
           margin-right: 0px;
+        }
+        .socialSvg:hover {
+          fill: $GOLD;
         }
       }
     }

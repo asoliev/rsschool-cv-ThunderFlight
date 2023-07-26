@@ -153,13 +153,8 @@ $z-index: (
   padding-left: 15px;
   padding-right: 15px;
 
-  @include media($SCREEN_TABLET) {
+  @include media($SCREEN_DESKTOP) {
     padding-left: 20px;
     padding-right: 20px;
   }
-
-  // @include media($SCREEN_DESKTOP) {
-  //   padding-left: 55px;
-  //   padding-right: 55px;
-  // }
 }

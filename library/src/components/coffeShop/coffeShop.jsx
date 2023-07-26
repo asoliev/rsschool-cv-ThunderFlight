@@ -4,18 +4,16 @@ import styles from "./coffeShop.module.scss";
 export const CoffeShop = () => {
   return (
     <section className={styles.coffeShop}>
-      <H2Title>Coffe Shop</H2Title>
+      <H2Title>Coffee Shop</H2Title>
       <p className={styles.coffeShop__descriptionUp}>
         In our library, we have of cozy coffee shop, welcoming in customers with
-        frothy cappuccinos and friendly conversation.
-      </p>
-      <p className={styles.coffeShop__descriptionBottom}>
-        you can get a favorite book and read in coffee shop. Our barista to cook
-        you best coffee, and also you can try desserts from bakery.
+        frothy cappuccinos and friendly conversation. you can get a favorite
+        book and read in coffee shop. Our barista to cook you best coffee, and
+        also you can try desserts from bakery.
       </p>
       <div className={styles.coffeShop__priceFood}>
         <div className={styles.leftPrice}>
-          <h3 className={styles.leftPrice__foodTitle}>Coffe &amp; Tea</h3>
+          <h3 className={styles.leftPrice__foodTitle}>Coffee &amp; Tea</h3>
           <ul className={styles.listFood}>
             <li
               className={classNames(
@@ -49,7 +47,7 @@ export const CoffeShop = () => {
                 styles.listFood__oneFood,
                 styles.listFood__oneLeft
               )}>
-              <p>Cappucino</p>
+              <p>Cappuccino</p>
               <div></div>
               <p>&#36;4</p>
             </li>
@@ -74,12 +72,12 @@ export const CoffeShop = () => {
           </ul>
         </div>
         <div className={styles.rightPrice}>
-          <h3 className={styles.rightPrice__foodTitle}>Deserst &amp; Cakes</h3>
+          <h3 className={styles.rightPrice__foodTitle}>Desserts &amp; Cakes</h3>
           <ul className={styles.listFood}>
             <li
               className={classNames(
-                styles.listFood__oneFood,
-                styles.listFood__oneRight
+                styles.listFood__oneRight,
+                styles.listFood__oneFood
               )}>
               <p>Forest Gateau</p>
               <div></div>
@@ -87,8 +85,8 @@ export const CoffeShop = () => {
             </li>
             <li
               className={classNames(
-                styles.listFood__oneFood,
-                styles.listFood__oneRight
+                styles.listFood__oneRight,
+                styles.listFood__oneFood
               )}>
               <p>Blue Moon</p>
               <div></div>
@@ -96,8 +94,8 @@ export const CoffeShop = () => {
             </li>
             <li
               className={classNames(
-                styles.listFood__oneFood,
-                styles.listFood__oneRight
+                styles.listFood__oneRight,
+                styles.listFood__oneFood
               )}>
               <p>Truffle Cake</p>
               <div></div>
@@ -105,8 +103,8 @@ export const CoffeShop = () => {
             </li>
             <li
               className={classNames(
-                styles.listFood__oneFood,
-                styles.listFood__oneRight
+                styles.listFood__oneRight,
+                styles.listFood__oneFood
               )}>
               <p>Chocolate Cake</p>
               <div></div>
@@ -114,8 +112,8 @@ export const CoffeShop = () => {
             </li>
             <li
               className={classNames(
-                styles.listFood__oneFood,
-                styles.listFood__oneRight
+                styles.listFood__oneRight,
+                styles.listFood__oneFood
               )}>
               <p>Poet’s Dream Cake</p>
               <div></div>
@@ -123,8 +121,8 @@ export const CoffeShop = () => {
             </li>
             <li
               className={classNames(
-                styles.listFood__oneFood,
-                styles.listFood__oneRight
+                styles.listFood__oneRight,
+                styles.listFood__oneFood
               )}>
               <p>Pineapple Cake</p>
               <div></div>
