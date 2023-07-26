@@ -1,8 +1,9 @@
 @import "../../scss/main.scss";
 .favorites {
   @include pX;
-
-  margin-bottom: 15px;
+  width: 100%;
+  max-width: 1400;
+  margin-bottom: 20px;
   @include media($SCREEN_FULLHD_L) {
     @include flex-col(center, center);
   }
@@ -13,9 +14,8 @@
   }
   .seasonBooks {
     &__preViewBooks {
-      @include media($SCREEN_TABLET) {
-        @include flex-col(center, center);
-      }
+      @include flex-col(center, center);
+
       @include media($SCREEN_FULLHD) {
         @include flex;
         display: grid;
@@ -24,7 +24,7 @@
         flex-direction: row;
       }
 
-      padding-top: 40px;
+      padding-top: 35px;
     }
     &__pagination {
       @include flex-row(flex-start, center);
@@ -92,11 +92,14 @@
     &__from {
       @include text(20px, 400, $BLACK);
       font-family: Forum;
-      margin-bottom: 10px;
+      letter-spacing: 2px;
+      line-height: 40px;
+      height: 38px;
     }
     &__lineGold {
       border: 1px solid $GOLD;
-      width: 50px;
+      background-color: $GOLD;
+      width: 59px;
       margin-bottom: 20px;
     }
 

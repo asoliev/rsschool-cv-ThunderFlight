@@ -27,12 +27,28 @@
     @include flex(center, center);
     border-radius: 100%;
     cursor: pointer;
+    margin-right: 40px;
+    z-index: 3;
+    @include media($SCREEN_DESKTOP) {
+      margin: 0px;
+    }
   }
   &__nav {
     @include flex-row(center, center);
     position: relative;
+
     img {
       cursor: pointer;
+      z-index: 3;
+    }
+    .burgerImg {
+      width: 35px;
+    }
+    .noAvatar {
+      margin-right: 40px;
+      @include media($SCREEN_DESKTOP) {
+        margin: 0px;
+      }
     }
     .myProfileClose {
       display: none;
@@ -157,7 +173,7 @@
       position: absolute;
       z-index: 2;
       right: 0px;
-      bottom: -250px;
+      top: 70px;
     }
     .modalRegisterWrapClose {
       display: none;
@@ -225,14 +241,87 @@
       }
     }
     .list {
-      list-style: none;
-      @include flex-row(center);
-
+      display: none;
+      @include media($SCREEN_DESKTOP) {
+        display: block;
+        list-style: none;
+        @include flex-row(center);
+      }
+      & li a:hover {
+        color: $GOLD;
+      }
       & li {
         margin-right: 30px;
       }
       & li:last-child {
         margin-right: 40px;
+      }
+      & li a {
+        @include text(20px, 400, $WHITE);
+        line-height: 50px;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        transition: all 0.2s ease-in-out;
+      }
+      .dot {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 6px;
+        height: 6px;
+        background-color: $GOLD;
+        border-radius: 50%;
+        opacity: 0;
+        transform: translateX(30px);
+        transition: all 0.2s ease-in-out;
+      }
+      & li:nth-child(1):hover ~ .dot {
+        transform: translateX(30px);
+        transition: all 0.2s ease-in-out;
+        opacity: 1;
+      }
+      & li:nth-child(2):hover ~ .dot {
+        transform: translateX(130px);
+        transition: all 0.2s ease-in-out;
+        opacity: 1;
+      }
+      & li:nth-child(3):hover ~ .dot {
+        transform: translateX(260px);
+        transition: all 0.2s ease-in-out;
+        opacity: 1;
+      }
+      & li:nth-child(4):hover ~ .dot {
+        transform: translateX(390px);
+        transition: all 0.2s ease-in-out;
+        opacity: 1;
+      }
+      & li:nth-child(5):hover ~ .dot {
+        transform: translateX(520px);
+        transition: all 0.2s ease-in-out;
+        opacity: 1;
+      }
+    }
+    .burgerMenuTrue {
+      display: block;
+    }
+    .burgerMenuFalse {
+      display: none;
+    }
+    .burgerList {
+      position: absolute;
+      z-index: 2;
+      right: -20px;
+      top: -20px;
+      list-style: none;
+      background-color: $BLACK;
+      padding: 100px 20px 100px 20px;
+      width: 330px;
+      @include flex-col(center, center);
+      & li {
+        margin-bottom: 30px;
+      }
+      & li:last-child {
+        margin-bottom: 0px;
       }
       & li a {
         @include text(20px, 400, $WHITE);

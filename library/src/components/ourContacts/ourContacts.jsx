@@ -3,7 +3,7 @@ import styles from "./ourContacts.module.scss";
 export const OurContacts = () => {
   // const {} = useLoadScript({});
   return (
-    <section className={styles.ourContacts}>
+    <section className={styles.ourContacts} id="ourContacts">
       <H2Title className={styles.ourContacts__title}>Our Contacts</H2Title>
       <div className={styles.ourContacts__wrapTextMap}>
         <div className={styles.textContact}>
@@ -13,7 +13,7 @@ export const OurContacts = () => {
           <p>Putterham Library: &#40;617&#41; 730-2385</p>
           <h3>Senior Staff</h3>
           <p>
-            Library Directory:<b>Amanda Hirst</b>
+            Library Director:<b>Amanda Hirst</b>
           </p>
         </div>
         <div>

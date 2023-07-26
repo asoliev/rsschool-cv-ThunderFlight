@@ -2,3 +2,6 @@
 main {
   @include flex-col(center, center);
 }
+html {
+  scroll-behavior: smooth;
+}

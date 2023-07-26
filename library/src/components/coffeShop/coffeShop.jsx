@@ -3,7 +3,7 @@ import { H2Title } from "../common/h2Title/h2Title";
 import styles from "./coffeShop.module.scss";
 export const CoffeShop = () => {
   return (
-    <section className={styles.coffeShop}>
+    <section className={styles.coffeShop} id="coffeeShop">
       <H2Title>Coffee Shop</H2Title>
       <p className={styles.coffeShop__descriptionUp}>
         In our library, we have of cozy coffee shop, welcoming in customers with
@@ -20,7 +20,7 @@ export const CoffeShop = () => {
                 styles.listFood__oneFood,
                 styles.listFood__oneLeft
               )}>
-              <p>Cold Brew Coffe</p>
+              <p>Cold Brew Coffee</p>
               <div></div>
               <p>&#36;3</p>
             </li>

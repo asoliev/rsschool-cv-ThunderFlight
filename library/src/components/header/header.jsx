@@ -1,11 +1,13 @@
 import classNames from "classnames";
 import { useEffect, useState } from "react";
 import { uid } from "uid";
+import burger from "../../../public/images/burger.svg";
+import burgerCross from "../../../public/images/burgerСross.svg";
 import close from "../../../public/images/close_btn.svg";
 import profileIcon from "../../../public/images/icon_profile.svg";
 import { CustomButton } from "../common/h2Title/customButton/customButton";
 import styles from "./header.module.scss";
-export const Header = () => {
+export const Header = ({ headerWith }) => {
   const [users, setUsers] = useState([]);
   const [open, setOpen] = useState(false);
   const [openLogIn, setopenLogIn] = useState(false);
@@ -17,16 +19,26 @@ export const Header = () => {
     password: "",
     cardNumber: uid(),
   });
+  const [validForm, setValidForm] = useState({
+    validFirstName: false,
+    validLastName: false,
+    validEmail: false,
+    validPassword: false,
+  });
   const [emailLoginForm, setEmailLoginForm] = useState("");
   const [passwordLoginForm, setPasswordLoginForm] = useState("");
-  const [firstName, setFirstName] = useState(false);
-  const [lastName, setLastName] = useState(false);
-  const [email, setEmail] = useState(false);
-  const [password, setPassword] = useState(false);
   const [userRegisetered, setUserRegistered] = useState(false);
   const [profileReged, setProfileReged] = useState(false);
   const [openProfileBool, setOpenProfileBool] = useState(false);
   const [loginUserProfile, setLoginUserProfile] = useState("");
+  const [openBurger, setOpenBurger] = useState(false);
+  const mechanismBurger = () => {
+    setOpenBurger(!openBurger);
+    setOpen(false);
+    setProfileReged(false);
+    setopenRegister(false);
+    setopenLogIn(false);
+  };
   const logOut = () => {
     setOpen(true);
     setProfileReged(false);
@@ -37,6 +49,7 @@ export const Header = () => {
     setopenRegister(true);
     setopenLogIn(false);
     setOpen(false);
+    setOpenBurger(false);
   };
   const openModalNoReg = () => {
     if (openLogIn === true || openRegister == true) {
@@ -44,18 +57,16 @@ export const Header = () => {
     } else {
       setOpen(!open);
     }
-    console.log("noreg");
+    setOpenBurger(false);
   };
   const openModalReg = () => {
-    console.log(openProfileBool);
-    console.log(profileReged);
     if (openProfileBool) {
       setProfileReged(false);
     } else {
       setProfileReged(!profileReged);
     }
     setOpen(false);
-    console.log("reg");
+    setOpenBurger(false);
   };
   const openProfile = () => {
     setOpenProfileBool(true);
@@ -68,6 +79,7 @@ export const Header = () => {
     setopenLogIn(true);
     setOpen(false);
     setopenRegister(false);
+    setOpenBurger(false);
   };
   const closeLogIn = () => {
     setopenLogIn(false);
@@ -100,46 +112,51 @@ export const Header = () => {
       userForm.firstName !== "" &&
       NamesReg.test(userForm.firstName) === false
     ) {
-      setFirstName(true);
+      setValidForm((pre) => ({ ...pre, validFirstName: true }));
     } else {
-      setFirstName(false);
+      setValidForm((pre) => ({ ...pre, validFirstName: false }));
     }
     if (
       userForm.lastName !== "" &&
       NamesReg.test(userForm.lastName) === false
     ) {
-      setLastName(true);
+      setValidForm((pre) => ({ ...pre, validLastName: true }));
     } else {
-      setLastName(false);
+      setValidForm((pre) => ({ ...pre, validLastName: true }));
     }
     if (userForm.email !== "" && emailReg.test(userForm.email) === true) {
-      setEmail(true);
+      setValidForm((pre) => ({ ...pre, validEmail: true }));
     } else {
-      setEmail(false);
+      setValidForm((pre) => ({ ...pre, validEmail: true }));
     }
     if (
       userForm.password !== "" &&
       passwordReg.test(userForm.password) === false
     ) {
-      users.filter((item) => {
-        console.log(item.password);
-        console.log(userForm.password);
-        if (item.password === userForm.password) {
-          console.log("false");
-          setPassword(false);
-        } else {
-          setPassword(true);
-        }
-      });
+      // users.filter((item) => {
+      //   console.log(item.password);
+      //   console.log(userForm.password);
+      //   if (item.password === userForm.password) {
+      //     console.log("false");
+      //     setPassword(false);
+      //   } else {
+      //     setPassword(true);
+      //   }
+      // });
+      setValidForm((pre) => ({ ...pre, validPassword: true }));
     } else {
-      setPassword(false);
-      console.log("false");
+      setValidForm((pre) => ({ ...pre, validPassword: true }));
     }
   };
   const submitUser = (e) => {
     e.preventDefault();
 
-    if (password && email && firstName && lastName) {
+    if (
+      validForm.validPassword &&
+      validForm.validEmail &&
+      validForm.validFirstName &&
+      validForm.validLastName
+    ) {
       setUsers((prev) => [...prev, userForm]);
 
       setUserForm({
@@ -185,20 +202,21 @@ export const Header = () => {
         <nav className={styles.headerWrapper__nav}>
           <ul className={styles.list}>
             <li>
-              <a href="#">About</a>
+              <a href="#carousel">About</a>
             </li>
             <li>
-              <a href="#">Favorites</a>
+              <a href="#favorites">Favorites</a>
             </li>
             <li>
-              <a href="#">Coffee shop</a>
+              <a href="#coffeeShop">Coffee shop</a>
             </li>
             <li>
-              <a href="#">Contacts</a>
+              <a href="#ourContacts">Contacts</a>
             </li>
             <li>
-              <a href="#">Library Card</a>
+              <a href="#digitalLibraryCards">Library Card</a>
             </li>
+            <div className={styles.dot}></div>
           </ul>
           {userRegisetered ? (
             <div
@@ -215,8 +233,50 @@ export const Header = () => {
             <img
               src={profileIcon}
               onClick={userRegisetered ? openModalReg : openModalNoReg}
+              className={styles.noAvatar}
             />
           )}
+          {headerWith ? (
+            <img
+              src={openBurger ? burgerCross : burger}
+              className={styles.burgerImg}
+              onClick={mechanismBurger}
+            />
+          ) : (
+            <></>
+          )}
+          <div
+            className={classNames(
+              openBurger ? styles.burgerMenuTrue : styles.burgerMenuFalse
+            )}>
+            <ul className={styles.burgerList}>
+              <li>
+                <a href="#carousel" onClick={mechanismBurger}>
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#favorites" onClick={mechanismBurger}>
+                  Favorites
+                </a>
+              </li>
+              <li>
+                <a href="#coffeeShop" onClick={mechanismBurger}>
+                  Coffee shop
+                </a>
+              </li>
+              <li>
+                <a href="#ourContacts" onClick={mechanismBurger}>
+                  Contacts
+                </a>
+              </li>
+              <li>
+                <a href="#digitalLibraryCards" onClick={mechanismBurger}>
+                  Library Card
+                </a>
+              </li>
+            </ul>
+          </div>
           <div
             className={classNames(
               open ? styles.modalChooseOpened : styles.modalChooseClosed
@@ -332,7 +392,9 @@ export const Header = () => {
                 onChange={registerUserObj}
                 value={userForm.firstName}
                 className={classNames(
-                  firstName ? styles.validFirstName : styles.invalidFirstName
+                  validForm.validFirstName
+                    ? styles.validFirstName
+                    : styles.invalidFirstName
                 )}
                 required
               />
@@ -344,7 +406,9 @@ export const Header = () => {
                 name="lastName"
                 value={userForm.lastName}
                 className={classNames(
-                  lastName ? styles.validFirstName : styles.invalidFirstName
+                  validForm.validLastName
+                    ? styles.validFirstName
+                    : styles.invalidFirstName
                 )}
                 required
               />
@@ -356,7 +420,9 @@ export const Header = () => {
                 name="email"
                 value={userForm.email}
                 className={classNames(
-                  email ? styles.validFirstName : styles.invalidFirstName
+                  validForm.validEmail
+                    ? styles.validFirstName
+                    : styles.invalidFirstName
                 )}
                 required
               />
@@ -368,11 +434,14 @@ export const Header = () => {
                 onChange={registerUserObj}
                 value={userForm.password}
                 className={classNames(
-                  password ? styles.validFirstName : styles.invalidFirstName
+                  validForm.validPassword
+                    ? styles.validFirstName
+                    : styles.invalidFirstName
                 )}
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8}"
+                maxLength="8"
                 title={
-                  password
+                  validForm.validPassword
                     ? "Password needs min 1 Uppercase 1 lowercase 1 Number lenght 8-16"
                     : "Put another Password"
                 }

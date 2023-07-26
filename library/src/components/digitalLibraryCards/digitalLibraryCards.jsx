@@ -7,7 +7,7 @@ export const DigitalLibraryCards = () => {
   const [card, setCard] = useState();
 
   return (
-    <section className={styles.digitalLibraryCards}>
+    <section className={styles.digitalLibraryCards} id="digitalLibraryCards">
       <H2Title>Digital Library Cards</H2Title>
       <div className={styles.digitalLibraryCards__wrapp}>
         <div className={styles.leftFind}>

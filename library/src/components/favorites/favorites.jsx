@@ -10,7 +10,7 @@ export const Favorites = ({ data }) => {
     setCheck(e.target.value);
   };
   return (
-    <section className={styles.favorites}>
+    <section className={styles.favorites} id="favorites">
       <H2Title>Favorites</H2Title>
 
       <div className={styles.seasonBooks}>
@@ -59,8 +59,8 @@ export const Favorites = ({ data }) => {
               if (check === key) {
                 return item[key].map((book, id) => {
                   return (
-                    <div>
-                      <div className={styles.cover} key={id}>
+                    <div key={id}>
+                      <div className={styles.cover}>
                         <h3 className={styles.cover__from}>{book.from}</h3>
                         <div className={styles.cover__lineGold}></div>
                         <h4
