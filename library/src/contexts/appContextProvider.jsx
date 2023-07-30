@@ -25,12 +25,7 @@ export const Provider = function ({ children }) {
       validPassword: false,
     },
   });
-  console.log(
-    key.validForm.validPassword,
-    key.validForm.validEmail,
-    key.validForm.validLastName,
-    key.validForm.validFirstName
-  );
+  console.log(key.userForm);
   const openModalRegister = () => {
     setKey((pre) => ({ ...pre, openRegister: true }));
     setKey((pre) => ({ ...pre, openLogIn: false }));
@@ -52,17 +47,17 @@ export const Provider = function ({ children }) {
       key.validForm.validFirstName &&
       key.validForm.validLastName
     ) {
-      setKey((prev) => ({ users: [...prev, key.userForm] }));
+      // setKey((prev) => ({ users: [...prev, key.userForm] }));
 
-      setKey({
-        userForm: (pre) => ({
-          ...pre,
+      setKey((pre) => ({
+        userForm: {
+          ...pre.userForm,
           firstName: "",
           lastName: "",
           email: "",
           password: "",
-        }),
-      });
+        },
+      }));
       setKey((pre) => ({ ...pre, openRegister: false }));
       setKey((pre) => ({ ...pre, userRegisetered: true }));
     }
@@ -70,10 +65,10 @@ export const Provider = function ({ children }) {
 
   const registerUserObj = (e) => {
     const { name, value } = e.target;
-    setKey((pre) => ({
-      ...pre,
-      userForm: { [name]: value, id: uid() },
-    }));
+    console.log(name, " lol ", value);
+    // setKey((prev) => ({
+    //   userForm: { ...prev.userForm, [name]: value, id: uid() },
+    // }));
     let NamesReg = /[0-9]+/gi;
     let emailReg = /[A-z,0-9]+@[a-z]+\.[a-z]+/gi;
     let passwordReg = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8}/gi;
@@ -81,25 +76,37 @@ export const Provider = function ({ children }) {
       key.userForm.firstName !== "" &&
       NamesReg.test(key.userForm.firstName) === false
     ) {
-      setKey((prev) => ({ ...prev, [key.validForm.validFirstName]: true }));
+      setKey((prev) => ({
+        validForm: { ...prev.validForm, validFirstName: true },
+      }));
     } else {
-      setKey((prev) => ({ ...prev, [key.validForm.validFirstName]: false }));
+      setKey((prev) => ({
+        validForm: { ...prev.validForm, validFirstName: false },
+      }));
     }
     if (
       key.userForm.lastName !== "" &&
       NamesReg.test(key.userForm.lastName) === false
     ) {
-      setKey((prev) => ({ ...prev, [key.validForm.validLastName]: true }));
+      setKey((prev) => ({
+        validForm: { ...prev.validForm, validLastName: true },
+      }));
     } else {
-      setKey((prev) => ({ ...prev, [key.validForm.validLastName]: false }));
+      setKey((prev) => ({
+        validForm: { ...prev.validForm, validLastName: false },
+      }));
     }
     if (
       key.userForm.email !== "" &&
       emailReg.test(key.userForm.email) === true
     ) {
-      setKey((prev) => ({ ...prev, [key.validForm.validEmail]: true }));
+      setKey((prev) => ({
+        validForm: { ...prev.validForm, validEmail: true },
+      }));
     } else {
-      setKey((prev) => ({ ...prev, [key.validForm.validEmail]: false }));
+      setKey((prev) => ({
+        validForm: { ...prev.validForm, validEmail: false },
+      }));
     }
     if (
       key.userForm.password !== "" &&
@@ -115,11 +122,13 @@ export const Provider = function ({ children }) {
       //     setPassword(true);
       //   }
       // });
-      setKey((prev) => ({ ...prev, [key.validForm.validPassword]: true }));
-      console.log(key.validForm.validPassword);
+      setKey((prev) => ({
+        validForm: { ...prev.validForm, validPassword: true },
+      }));
     } else {
-      console.log("cry");
-      setKey((prev) => ({ ...prev, [key.validForm.validPassword]: false }));
+      setKey((prev) => ({
+        validForm: { ...prev.validForm, validPassword: false },
+      }));
     }
   };
 

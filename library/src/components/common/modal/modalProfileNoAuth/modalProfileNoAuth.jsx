@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useAppContext } from "../../../../contexts/useAppContext";
-import styles from "./ModalProfileNoAuth.module.scss";
+import styles from "./modalProfileNoAuth.module.scss";
 export const ModalProfileNoAuth = () => {
   const { key, openModalLogIn, openModalRegister } = useAppContext();
 
