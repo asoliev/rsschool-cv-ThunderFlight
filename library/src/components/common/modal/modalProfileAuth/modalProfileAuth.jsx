@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./ModalProfileAuth.module.scss";
+import styles from "./modalProfileAuth.module.scss";
 export const ModalProfileAuth = () => {
   const [openProfileBool, setOpenProfileBool] = useState(false);
   const openProfile = () => {
