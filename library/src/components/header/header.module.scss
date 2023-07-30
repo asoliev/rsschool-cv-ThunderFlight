@@ -252,6 +252,7 @@
       }
       & li {
         margin-right: 30px;
+        position: relative;
       }
       & li:last-child {
         margin-right: 40px;
@@ -263,43 +264,55 @@
         font-family: "Inter", sans-serif;
         transition: all 0.2s ease-in-out;
       }
-      .dot {
-        position: absolute;
-        left: 0px;
-        bottom: 0px;
-        width: 6px;
-        height: 6px;
+      // .dot {
+      //   position: absolute;
+      //   left: 0px;
+      //   bottom: 0px;
+      //   width: 6px;
+      //   height: 6px;
+      //   background-color: $GOLD;
+      //   border-radius: 50%;
+      //   opacity: 0;
+      //   transform: translateX(30px);
+      //   transition: all 0.2s ease-in-out;
+      // }
+
+      & li::after {
+        content: "";
         background-color: $GOLD;
-        border-radius: 50%;
+        position: absolute;
+        bottom: 0;
         opacity: 0;
-        transform: translateX(30px);
-        transition: all 0.2s ease-in-out;
+        left: 0px;
+        @include size(6px, true);
+        transform: translateX(-50%);
+        @include transition(left, opacity);
       }
-      & li:nth-child(1):hover ~ .dot {
-        transform: translateX(30px);
-        transition: all 0.2s ease-in-out;
+
+      & li:hover::after {
+        left: 50%;
         opacity: 1;
       }
-      & li:nth-child(2):hover ~ .dot {
-        transform: translateX(130px);
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-      }
-      & li:nth-child(3):hover ~ .dot {
-        transform: translateX(260px);
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-      }
-      & li:nth-child(4):hover ~ .dot {
-        transform: translateX(390px);
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-      }
-      & li:nth-child(5):hover ~ .dot {
-        transform: translateX(520px);
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-      }
+      // & li:nth-child(2):hover ~ .dot {
+      //   transform: translateX(130px);
+      //   transition: all 0.2s ease-in-out;
+      //   opacity: 1;
+      // }
+      // & li:nth-child(3):hover ~ .dot {
+      //   transform: translateX(260px);
+      //   transition: all 0.2s ease-in-out;
+      //   opacity: 1;
+      // }
+      // & li:nth-child(4):hover ~ .dot {
+      //   transform: translateX(390px);
+      //   transition: all 0.2s ease-in-out;
+      //   opacity: 1;
+      // }
+      // & li:nth-child(5):hover ~ .dot {
+      //   transform: translateX(520px);
+      //   transition: all 0.2s ease-in-out;
+      //   opacity: 1;
+      // }
     }
     .burgerMenuTrue {
       display: block;

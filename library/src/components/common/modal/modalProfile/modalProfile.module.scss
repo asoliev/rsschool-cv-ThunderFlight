@@ -1,0 +1,50 @@
+@import "../../../../scss/main.scss";
+.myProfileClose {
+  display: none;
+}
+.myProfile {
+  display: block;
+  background-color: $WHITE;
+  width: 600px;
+  height: 400px;
+  position: absolute;
+  z-index: 2;
+  bottom: -420px;
+  right: 0px;
+  img {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+  @include flex-row(start);
+  &__left {
+    background-color: $BLACK;
+    width: 170px;
+    height: 100%;
+    @include flex-col(center, center);
+    .profileAvatar {
+      width: 80px;
+      height: 80px;
+      background-color: $WHITE;
+      margin-bottom: 20px;
+    }
+    .profileName {
+      width: 120px;
+      height: 30px;
+      background-color: $WHITE;
+    }
+  }
+  &__right {
+    padding: 40px 25px 40px 20px;
+    position: relative;
+
+    h3 {
+      @include text(40px, 400, $BLACK);
+      font-family: Forum;
+      letter-spacing: 0.8px;
+    }
+    ul {
+      list-style: none;
+    }
+  }
+}

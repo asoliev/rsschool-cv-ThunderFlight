@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react";
-import { CustomButton } from "../common/h2Title/customButton/customButton";
+import { CustomButton } from "../common/customButton/customButton";
 import { H2Title } from "../common/h2Title/h2Title";
 import styles from "./favorites.module.scss";
 export const Favorites = ({ data }) => {
